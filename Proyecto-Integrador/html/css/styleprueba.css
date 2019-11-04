@@ -1,0 +1,44 @@
+*{
+    
+}
+body{
+    background-image: url(../imagenes/mascotas-juntas.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+input{
+    border-color: #9ACD32;
+}
+.login{
+   
+}
+a{
+    background-color: #224B19;
+    text-decoration: none;
+    color: #9ACD32;
+}
+button{
+    border: none;
+    color:#9ACD32;
+    background-color: #224B19;
+}
+@media (max-width: 450px){
+    body{ 
+        background-image: none;
+        background-color: #224B19;
+        color:#9ACD32;
+    } 
+    .login{
+        max-width: 100%;
+    }
+}
+@media (min-width: 451px) and (max-width:800px){
+      body{ 
+    background-image: none;
+    background-color: #224B19;
+    color:#9ACD32;
+    } 
+    .login{
+        max-width: 100%;
+    }
+}
