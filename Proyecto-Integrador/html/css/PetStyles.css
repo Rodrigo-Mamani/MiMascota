@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*Colores:
 #224B19 deepgreen
 #9ACD32 yellowgreen
@@ -29,4 +30,37 @@ a{
     color: red;
     text-decoration: none;
     font-weight: 900s;
+=======
+/*Colores:
+#224B19 deepgreen
+#9ACD32 yellowgreen
+*/
+
+body{
+    background-image: url(../Images/BlackCat.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+.QUESTIONS{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+h1{
+    text-align: center;
+    background-color: white
+}
+h3{
+    background-color: green;
+    color: white;
+    border: double 1px black;
+}
+p{
+    background-color:;
+    color: black;
+}
+
+a{
+    color: red;
+    text-decoration: none;
+    font-weight: 900;
+>>>>>>> 8d6ec4fd6bdcceb4910d5482bd43464c35f1ad9c
 }
