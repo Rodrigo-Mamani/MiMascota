@@ -4,7 +4,7 @@
 */
 
 body{
-    background-image: url(../Images/BlackCat.jpg);
+    background-image: url(../imagenes/BlackCat.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
@@ -28,5 +28,5 @@ p{
 a{
     color: red;
     text-decoration: none;
-    font-weight: 900;
+    font-weight: 900s;
 }
