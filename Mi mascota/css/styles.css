@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+h1{
+    color: white;
+    font-style: italic;
+}
+.container-fluid{
+    background-image: url(../imagenes/fondo-nuevo.png);
+    position: fixed;
+    z-index: 4;
+    padding: 0;
+}
+
+.container{
+    position: relative;
+    z-index: 2;
+    top: 100px;
+    border: double rgb(138, 2, 2) 1px;
+}
+.nav-link{
+    color: rgb(51, 51, 51);
+}
+.nav-link:hover{
+    color: green;
+}
+.baner{
+    width: 100%;
+    height: 300px;
+    border: solid  1px;
+    padding: 5px;
+}
+.articulo-1{
+    background-color: rgb(0, 0, 0);
+    height: 300px;
+}
+.articulo-2{
+    background-color: rgb(255, 255, 255);
+    
+    border: solid rgb(138, 2, 2) 1px;
+    
+}
+article img{
+    position: relative;
+}
+#close{
+    position: absolute;
+    right: 20px;
+}
+.texto-link{
+    color: #9ACD32;
+}
+button{
+    border: solid rgb(138, 2, 2) 1px;
+    color:white;
+    background-color: #9ACD32;
+}
+.titulo-form{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 15px;
+}
+#preguntas{
+    font-size: 35px;
+}
+h4{
+    font-size: 24px;
+}
+.respuesta{
+    font-size: 16px;
+}
+@media(max-width:540px){
+    .form-control.mr-sm-2{
+        display: none;
+    }
+    .titulo-presentacion{
+        font-size: 1.3em;
+    }
+    h2{        
+        font-size: 1em;
+    }
+    .seccion-3{
+        display: none;
+    }
+    .seccion-2{
+        display: none;
+    }
+    .barra-navegacion{
+        background-color: rgb(8, 19, 53);
+    }
+    .nav-link{
+        color: white;
+    }
+    .items-barra{
+        display: none;
+    }
+    
+    .nav-item{
+        width: 40px;
+        display: flex;
+        justify-content: center;
+    }
+    i{
+        margin-left: 4px;
+    }
+}
+@media(max-width:980px){
+    .form-control.mr-sm-2{
+        display: none;
+    }
+    .container{
+        top: 73px;
+    }
+    .titulo-presentacion{
+        font-size: 2em;
+    }
+    h2{        
+        font-size: 1.3em;
+    }
+    #preguntas{
+        font-size: 24px;
+    }
+    h4{
+        font-size: 18px;
+    }
+    .respuesta{
+        font-size: 13px;
+    }
+    .seccion-3{
+        display: none;
+    }
+    .barra-navegacion{
+        background-color: rgb(8, 19, 53);
+        width: 100%;
+    }
+    .nav-link{
+        color: white;
+    }
+    .items-barra{
+        display: none;
+    }
+    i{
+        margin-left: 4px;
+    }
+    .nav-item{
+        width: 40px;
+        display: flex;
+        justify-content: center;
+    }
+}
