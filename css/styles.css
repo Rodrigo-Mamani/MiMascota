@@ -33,9 +33,9 @@ h1{
 
 .articulo-2{
     background-color: rgb(255, 255, 255);
-
+    
     border: solid rgb(138, 2, 2) 1px;
-
+    
 }
 
 #close{
@@ -71,7 +71,7 @@ h4{
     .titulo-presentacion{
         font-size: 1.3em;
     }
-    h2{
+    h2{        
         font-size: 1em;
     }
     .seccion-3{
@@ -89,7 +89,7 @@ h4{
     .items-barra{
         display: none;
     }
-
+    
     .nav-item{
         width: 40px;
         display: flex;
@@ -109,7 +109,7 @@ h4{
     .titulo-presentacion{
         font-size: 2em;
     }
-    h2{
+    h2{        
         font-size: 1.3em;
     }
     #preguntas{
@@ -142,9 +142,4 @@ h4{
         display: flex;
         justify-content: center;
     }
-}
-
-textarea{
-  width: inherit;
-  
 }
