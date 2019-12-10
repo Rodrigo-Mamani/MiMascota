@@ -76,13 +76,13 @@ if($_POST){
             <div class="barra-navegacion">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="d-flex nav-link active" href="#"><i class="icon ion-md-log-in mr-1"></i><div class="items-barra"> Loguin </div></a>
+                        <a class="d-flex nav-link active" href="login.php"><i class="icon ion-md-log-in mr-1"></i><div class="items-barra"> Loguin </div></a>
                       </li>
                       <li class="nav-item">
                           <a class="d-flex nav-link" href="register.php"><i class="icon ion-md-checkmark-circle-outline mr-1"></i><div class="items-barra"> Registrate </div></a>
                         </li>
                     <li class="nav-item">
-                      <a class="d-flex nav-link" href="home.html"><i class="icon ion-md-home mr-1"></i><div class="items-barra"> Home </div></a>
+                      <a class="d-flex nav-link" href="home.php"><i class="icon ion-md-home mr-1"></i><div class="items-barra"> Home </div></a>
                     </li>
 
                   </ul>

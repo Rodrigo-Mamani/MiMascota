@@ -1,4 +1,14 @@
 <?php
+
+$nombre="";
+$apellido="";
+$email="";
+$errores=[];
+$datosUsuario=[$nombre,$apellido,$email];
+$json=json_encode($datosUsuario);
+
+
+
 if ($_POST){
 
   if (!$_POST["nombre"]) {
@@ -36,7 +46,7 @@ if ($_POST){
   }
 
   if (count($errores)==0) {
-    header("location:home.php");exit;
+    header("location:login.php");exit;
   }
 
 }
@@ -62,6 +72,7 @@ if ($_POST){
 
 
                       <nav class="border-bottom border-success d-flex navbar navbar-expand-lg">
+                        <a href="home.php"><img class="logo" src="imagenes/logo.jpg" width="81px">
                             <h1>MiMascota!</h1>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                               <span class="navbar-toggler-icon"></span>

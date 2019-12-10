@@ -13,7 +13,7 @@
 
 
                       <nav class="border-bottom border-success d-flex navbar navbar-expand-lg">
-                      <a href="home.html"><img class="logo" src="imagenes/logo.jpg" width="81px"></a>
+                      <a href="home.php"><img class="logo" src="imagenes/logo.jpg" width="81px"></a>
                             <h1>MiMascota!</h1>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                               <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
             <div class="barra-navegacion">
                 <ul class="nav nav-tabs my-3 my-lg-0">
                     <li class="nav-item">
-                      <a class="d-flex nav-link" href="home.html"><i class="icon ion-md-home mr-1"></i><div class="items-barra"> Home </div></a>
+                      <a class="d-flex nav-link" href="home.php"><i class="icon ion-md-home mr-1"></i><div class="items-barra"> Home </div></a>
                     </li>
                     <li class="nav-item">
                       <a class="d-flex nav-link" href="#"><i class="icon ion-md-notifications mr-1"></i><div class="items-barra"> Notificaciones </div></a>
@@ -37,13 +37,13 @@
                       <a class="d-flex nav-link" href="#"><i class="icon ion-md-person mr-1"></i><div class="items-barra"> Solicitudes </div></a>
                     </li>
                     <li class="nav-item">
-                      <a class="d-flex nav-link active" href="questions.html"><i class="icon ion-md-help mr-1"></i><div class="items-barra"> Preguntas frecuentes </div></a>
+                      <a class="d-flex nav-link active" href="questions.php"><i class="icon ion-md-help mr-1"></i><div class="items-barra"> Preguntas frecuentes </div></a>
                     </li>
                     <li class="nav-item">
                         <a class="d-flex nav-link" href="#"><i class="icon ion-md-settings mr-1"></i><div class="items-barra"> Configuraciones </div></a>
                       </li>
                       <li class="nav-item">
-                        <a class="d-flex nav-link" href="login.html"><i class="icon ion-md-log-out mr-1"></i><div class="items-barra"> Salir </div></a>
+                        <a class="d-flex nav-link" href="login.php"><i class="icon ion-md-log-out mr-1"></i><div class="items-barra"> Salir </div></a>
                       </li>
                   </ul>
             </div>

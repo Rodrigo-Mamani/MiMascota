@@ -32,7 +32,7 @@
               <div class="barra-navegacion">
                   <ul class="nav nav-tabs my-3 my-lg-0">
                       <li class="nav-item">
-                        <a class="d-flex nav-link active" href="#"><i class="icon ion-md-home mr-1"></i><div class="items-barra"> Home </div></a>
+                        <a class="d-flex nav-link active" href="home.php"><i class="icon ion-md-home mr-1"></i><div class="items-barra"> Home </div></a>
                       </li>
                       <li class="nav-item">
                         <a class="d-flex nav-link" href="#"><i class="icon ion-md-notifications mr-1"></i><div class="items-barra"> Notificaciones </div></a>
@@ -44,13 +44,13 @@
                         <a class="d-flex nav-link" href="#"><i class="icon ion-md-person mr-1"></i><div class="items-barra"> Solicitudes </div></a>
                       </li>
                       <li class="nav-item">
-                        <a class="d-flex nav-link" href="questions.html"><i class="icon ion-md-help mr-1"></i><div class="items-barra"> Preguntas frecuentes </div></a>
+                        <a class="d-flex nav-link" href="questions.php"><i class="icon ion-md-help mr-1"></i><div class="items-barra"> Preguntas frecuentes </div></a>
                       </li>
                       <li class="nav-item">
                           <a class="d-flex nav-link" href="#"><i class="icon ion-md-settings mr-1"></i><div class="items-barra"> Configuraciones </div></a>
                         </li>
                         <li class="nav-item">
-                          <a class="d-flex nav-link" href="login.html"><i class="icon ion-md-log-out mr-1"></i><div class="items-barra"> Salir </div></a>
+                          <a class="d-flex nav-link" href="login.php"><i class="icon ion-md-log-out mr-1"></i><div class="items-barra"> Salir </div></a>
                         </li>
                     </ul>
               </div>
