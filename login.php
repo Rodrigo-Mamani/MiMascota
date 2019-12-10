@@ -1,3 +1,55 @@
+<?php
+$usuario="";
+$mail="";
+$contrasenia="";
+$errores=[];
+if($_POST){
+  // validacion del usuario //
+    if(!$_POST["usuario"]){
+      $errores["usuario"]= "El campo no puede estar vacio";
+    }
+    elseif(strlen($_POST["usuario"])<3 || strlen($_POST["usuario"]) >15){
+      $errores["usuario"]="El campo debe tener entre 3 y 15 letras";
+    }
+    else{
+    $usuario=$_POST["usuario"];
+    }
+  // validacion del email //
+    if(!$_POST["correo"]){
+        $errores["correo"]="El campo no puede estar vacio";
+    }
+    elseif(!filter_var($_POST["correo"],FILTER_VALIDATE_EMAIL)){
+        $errores["correo"]="Asegurate que éste campo sea un email";
+    }
+    else{
+        $mail=$_POST["correo"];
+    }
+  //  validacion de contrasenia //
+    if(!$_POST["contrasenia"]){
+      $errores["contrasenia"]="El campo no puede estar vacio";
+    }
+    elseif(strlen($_POST["contrasenia"])<4 || strlen($_POST["contrasenia"])>15){
+      $errores["contrasenia"]="El campo debe tener entre 4 y 15 caracteres";
+    }
+    else{
+      $contrasenia=$_POST["contrasenia"];
+    }
+    if(count($errores)==0){
+      header('location:home.html');
+      exit;
+    }
+}
+
+
+
+
+
+
+ ?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +79,7 @@
                         <a class="d-flex nav-link active" href="#"><i class="icon ion-md-log-in mr-1"></i><div class="items-barra"> Loguin </div></a>
                       </li>
                       <li class="nav-item">
-                          <a class="d-flex nav-link" href="register.html"><i class="icon ion-md-checkmark-circle-outline mr-1"></i><div class="items-barra"> Registrate </div></a>
+                          <a class="d-flex nav-link" href="register.php"><i class="icon ion-md-checkmark-circle-outline mr-1"></i><div class="items-barra"> Registrate </div></a>
                         </li>
                     <li class="nav-item">
                       <a class="d-flex nav-link" href="home.html"><i class="icon ion-md-home mr-1"></i><div class="items-barra"> Home </div></a>
@@ -38,20 +90,23 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="login m-5">
-                        <from action="scrip.php" method="post">
+                        <form action='' method='post'>
                              <fieldset>
                                 <legend>Usuario</legend>
-                                <input type="tex" name="usuario">
+                                <input type='text' name='usuario' value=<?=$usuario?>>
+                                <span id='register_text_errorloc' class='error'><?=isset($errores["usuario"])?$errores["usuario"]:""?></span>
                                 <legend>Email</legend>
-                                <input type="email" name="correo">
+                                <input type='email' name='correo' value=<?=$mail?>>
+                                <span id='register_email_errorloc' class='error'><?=isset($errores["correo"])?$errores["correo"]:""?></span>
                                 <legend>Contraseña</legend>
-                                <input type="password" name="contraseña">
+                                <input type='password' name='contrasenia'>
+                                <span id='register_password_errorloc' class='error'><?=isset($errores["contrasenia"])?$errores["contrasenia"]:""?></span>
                              </fieldset>
-                             <input class="recordar" type="radio" name="recordarme">Recordarme<br>
-                             <a class="texto-link" href="questions.html">¿Olvidó su contraseña?</a><br>
-                             <button type="submit">Iniciar sesión</button><br>
-                        </from>
-                        <a class="texto-link" href="register.html">¿Aun no estas registrado? Registrate ahora</a>
+                             <input class='recordar' type='radio' name='recordarme'>Recordarme<br>
+                             <a class='texto-link' href='questions.html'>¿Olvidó su contraseña?</a><br>
+                             <button type='submit'>Iniciar sesión</button><br>
+                        </form>
+                        <a class='texto-link' href='register.html'>¿Aun no estas registrado? Registrate ahora</a>
                         </div>
 
             </div>
