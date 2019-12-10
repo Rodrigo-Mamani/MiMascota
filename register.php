@@ -1,3 +1,50 @@
+<?php
+if ($_POST){
+
+  if (!$_POST["nombre"]) {
+    $errores["nombre"]="El campo no puede ser vacio";
+  } elseif (strlen($_POST["nombre"])<3|| strlen($_POST["nombre"])>14) {
+    $errores["nombre"]="Debe tener entre 3 y 14 caracteres";
+  } else {
+    $nombre=$_POST["nombre"];
+  }
+
+
+  if (!$_POST["apellido"]) {
+    $errores["apellido"]="El campo no puede ser vacio";
+  } elseif (strlen($_POST["apellido"])<3|| strlen($_POST["apellido"])>14) {
+    $errores["apellido"]="Debe tener entre 3 y 14 caracteres";
+  } else {
+    $apellido=$_POST["apellido"];
+  }
+
+
+  if (!$_POST["email"]) {
+    $errores["email"]="El campo no puede ser vacio";
+  } elseif (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false) {
+    $errores["email"]="El email no tiene el formato correcto";
+  } else {
+    $email=$_POST["email"];
+  }
+
+  if (!$_POST["password"]) {
+    $errores["password"]="El campo no puede ser vacio";
+  } elseif (strlen($_POST["password"])<8|| strlen($_POST["password"])>16) {
+    $errores["password"]="La contraseña debe tener entre 8 y 16 caracteres";
+  } elseif ($_POST["password"]!=$_POST["confirmarPassword"]){
+    $errores["password"]="Las contraseñas no coinciden";
+  }
+
+  if (count($errores)==0) {
+    header("location:home.php");exit;
+  }
+
+}
+
+
+
+
+ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,36 +76,42 @@
                       <a class="nav-link active" href="#"><i class="icon ion-md-checkmark-circle-outline"></i><div class="items-barra"> Registrate </div></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html"><i class="icon ion-md-arrow-back"></i><div class="items-barra mr-1"> Atrás </div></a>
+                        <a class="nav-link" href="login.php"><i class="icon ion-md-arrow-back"></i><div class="items-barra mr-1"> Atrás </div></a>
                       </li>
                   </ul>
             </div>
 
             <div class="row d-flex justify-content-center">
-                <form>
+                <form action="register.php" method="post" enctype="multipart/form-data">
                     <legend class="titulo-form">Registrate!</legend>
                                 <div class="form-row justify-content-center align-self-center mt-5 ml-5 mr-5">
 
                                             <div class="form-row">
                                                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                                      <input type="text" class="form-control" placeholder="Nombre">
+                                                      <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                                                      <span id='register_name_errorloc' class='error'><?=isset($errores["nombre"])?$errores["nombre"]:""?></span>
                                                   </div>
                                                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                                    <input type="text" class="form-control" placeholder="Apellido">
+                                                    <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+                                                    <span id='register_name_errorloc' class='error'><?=isset($errores["apellido"])?$errores["apellido"]:""?></span>
                                                   </div>
                                             </div>
 
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" for="inputEmail4">Email</label>
-                                                  <input type="email" class="form-control" id="inputEmail4" placeholder="Usuario@gmail.com">
+                                                  <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Usuario@gmail.com">
+                                                  <span id='register_name_errorloc' class='error'><?=isset($errores["email"])?$errores["email"]:""?></span>
                                             </div>
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" for="inputPassword4">Contraseña</label>
-                                                  <input type="password" class="form-control" id="inputPassword4" placeholder="Escribe algo que recuerdes">
+                                                  <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Escribe algo que recuerdes">
+                                                  <span id='register_password_errorloc' class='error'><?=isset($errores["password"])?$errores["password"]:""?></span>
                                             </div>
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" for="inputPassword4">Confirmar contraseña</label>
-                                                  <input type="password" class="form-control" id="inputPassword4" placeholder="Repite la contraseña">
+                                                  <input type="password" name="confirmarPassword" class="form-control" id="inputPassword4" placeholder="Repite la contraseña">
+                                                  <span id='register_password_errorloc' class='error'><?=isset($errores["confirmarPassword"])?$errores["confirmarPassword"]:""?></span>
+
                                             </div>
                                 </div>
 
@@ -66,16 +119,16 @@
                                       <div class="col-8">
                                           <div class="row">
                                                   <div class="form-group">
-                                                          <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                                                            <label class="form-check-label" style="font-weight: 700;" for="gridCheck">
-                                                              Recuerdame
+
+                                                            <input type="checkbox" name="confirm" id="gridCheck">
+                                                            <label for="confirm">
+                                                              Acepto los términos y condiciones
                                                             </label>
-                                                          </div>
+
                                                         </div>
                                           </div>
                                       </div>
-                                            <button type="submit" class="col-8 btn btn-dark" style="margin-bottom: 50px;">Registrarse</button>
+                                            <button href="home.php" type="submit" class="col-8 btn btn-dark" style="margin-bottom: 50px;">Registrarse</button>
                               </div>
 
               </form>
