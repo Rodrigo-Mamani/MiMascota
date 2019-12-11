@@ -106,7 +106,7 @@ if($_POST){
                              <a class='texto-link' href='questions.html'>¿Olvidó su contraseña?</a><br>
                              <button type='submit'>Iniciar sesión</button><br>
                         </form>
-                        <a class='texto-link' href='register.html'>¿Aun no estas registrado? Registrate ahora</a>
+                        <a class='texto-link' href='register.php'>¿Aun no estas registrado? Registrate ahora</a>
                         </div>
 
             </div>
