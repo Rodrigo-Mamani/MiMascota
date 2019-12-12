@@ -41,7 +41,7 @@ include_once("funciones.php");
 
 
                       <nav class="border-bottom border-success d-flex navbar navbar-expand-lg">
-                        
+                      <a href="home.html"><img class="logo" src="imagenes/logo.jpg" width="81px"></a>
                             <h1>MiMascota!</h1>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                               <span class="navbar-toggler-icon"></span>
