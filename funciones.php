@@ -39,13 +39,12 @@ function validate($datos)
     $email = trim($datos['email']);
 
     if(empty($datos['email'])) {
-        $errores['email'] = "Ingresa un mail"; 
+        $errores['email'] = "Ingresa un mail";
     } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errores['email'] = "El formato es inválido";
     }elseif(buscamePorEmail($email)==true){
-        $errores['email'] = "El email ya está registrado"; 
-        header('Location: login.php');
-        exit;
+        $errores['email'] = "El email ya está registrado";
+      
     }
 
     if(empty($datos['password'])) {
@@ -89,7 +88,7 @@ function generarId()
     if(empty($file)){
         return 1;
     }
-    
+
     $users = explode(PHP_EOL, $file);
     // El ultimo dato que genera siempre es un PHP_EOL, asi que lo sacamos con array_pop()
     array_pop($users);
@@ -101,7 +100,7 @@ function generarId()
 
 }
 
-function saveUser($usuario) 
+function saveUser($usuario)
 {
     $jsonUser = json_encode($usuario);
     file_put_contents('usuarios.json', $jsonUser . PHP_EOL, FILE_APPEND);
@@ -127,10 +126,10 @@ function buscamePorEmail($email)
     $arrayDeUsuariosTraidos = traerTodaLaBase();
     foreach($arrayDeUsuariosTraidos as $user) {
         if($user['email'] == $email) {
-            return true;
+            return $user;
         }
     }
-    return false;
+    return null;
 }
 
 function buscamePorUsuario($username)
@@ -153,7 +152,7 @@ function login($usuario) {
     // seteamos como identificador de la misma, el email del usuario:
     $_SESSION["email"] = $usuario["email"];
     // dd($_SESSION);
-    // Luego seteo la cookie. La mejor explicacion del uso de 
+    // Luego seteo la cookie. La mejor explicacion del uso de
     // setcookie() la tienen como siempre, en el manual de PHP
     // http://php.net/manual/es/function.setcookie.php
     setcookie("email", $usuario["email"], time()+3600);
@@ -189,7 +188,7 @@ function loginController()
 }
 // 3 - Funcion de Logout
 function logout()
-{   
+{
     // corto la session
     session_destroy();
     // seteo la cookie con time en negativo para que tambien se borre
@@ -210,11 +209,11 @@ function logout()
 
 // FILES!
 
-function saveAvatar($usuario) 
+function saveAvatar($usuario)
 {
 
     $errores = [];
-    
+
     $id = $usuario["id"];
 
     if ($_FILES["avatar"]["error"] == UPLOAD_ERR_OK) {
