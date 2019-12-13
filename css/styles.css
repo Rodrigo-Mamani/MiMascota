@@ -158,9 +158,11 @@ h4{
 
 textarea{
   resize: none;
-  width: inherit;
+  width: -webkit-fill-available;
 }
-
+.info{
+  height: 80px;
+}
 footer{
   background-color: #2c3e50;
   color: #ffffff;

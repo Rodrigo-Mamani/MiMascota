@@ -34,15 +34,18 @@
                       <a class="d-flex nav-link" href="#"><i class="icon ion-md-mail-unread mr-1"></i><div class="items-barra"> Mensajes </div></a>
                     </li>
                     <li class="nav-item">
-                      <a class="d-flex nav-link" href="#"><i class="icon ion-md-person mr-1"></i><div class="items-barra"> Solicitudes </div></a>
+                      <a class="d-flex nav-link" href="#"><i class="icon ion-md-person-add mr-1"></i><div class="items-barra"> Solicitudes </div></a>
                     </li>
                     <li class="nav-item">
                       <a class="d-flex nav-link active" href="questions.php"><i class="icon ion-md-help mr-1"></i><div class="items-barra"> Preguntas frecuentes </div></a>
                     </li>
                     <li class="nav-item">
-                        <a class="d-flex nav-link" href="#"><i class="icon ion-md-settings mr-1"></i><div class="items-barra"> Configuraciones </div></a>
+                        <a class="d-flex nav-link" href="#"><i class="icon ion-md-settings mr-1"></i><div class="items-barra"> Configuración </div></a>
                       </li>
-                      <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="d-flex nav-link" href="perfil(PRUEBA).php"><i class="icon ion-md-contact mr-1"></i><div class="items-barra"> Mi perfil </div></a>
+                      </li>
+                    <li class="nav-item">
                         <a class="d-flex nav-link" href="login.php"><i class="icon ion-md-log-out mr-1"></i><div class="items-barra"> Salir </div></a>
                       </li>
                   </ul>
@@ -59,10 +62,10 @@
                   <p class="respuesta">R: Mi mascota funciona como cualquier red social, divertite subiendo fotos y videos de tu mascota, ganar seguidores, y conocer a las mascotas de los demás!<br></p>
 
                   <h4 style="color: #9ACD32;">¿Cómo creo una cuenta en Mi mascota?<br></h4>
-                  <p class="respuesta">R: Podés ser parte de nuestra comunidad haciendo click en Registrarme y llenando el formulario.<br></p>
+                  <p class="respuesta">R: Podés ser parte de nuestra comunidad haciendo click en <a class="texto-link" href="register.php">Registrate</a> y llenando el formulario.<br></p>
 
                   <h4 style="color: #9ACD32;">¿Cómo recupero mi contraseña?<br></h4>
-                  <p class="respuesta">R: Si no podés ingresar tu contraseña porque la olvidaste o por cualquier otra razón, no te preocupes! Existen muchas maneras de recuperarla, y podés comenzar haciendo <a class="texto-link" href="MiMascota/PasswordRecovery.com">click acá!</a><br></p>
+                  <p class="respuesta">R: Si no podés ingresar tu contraseña porque la olvidaste o por cualquier otra razón, no te preocupes! Existen muchas maneras de recuperarla, y podés comenzar haciendo <a class="texto-link" href="#">click acá!</a><br></p>
 
                   <h4 style="color: #9ACD32;">¿Cómo elimino mi cuenta de Mi mascota?<br></h4>
                   <p class="respuesta">R: Si Mi mascota no es lo que esperabas, o no querías crear esta cuenta, solo tenés que ir a Configuración > Desactivar mi cuenta, e ingresar tu contraseña. Si te arrepentís y querés volver, vamos a guardar tus datos durante 60 días después de haberla desactivado. <br></p>
@@ -76,7 +79,7 @@
                   <h4 style="color: #9ACD32;">¿Quién puede ver mi perfil de Mi mascota?<br></h4>
                   <p class="respuesta">R: En Configuración > Privacidad tenés la opción de tener tu cuenta pública o privada. Tené en cuenta que solo se ocultará el contenido pero tu nombre y foto de perfil seguirán visibles. </p>
 
-                  <h4 style="color: #9ACD32;">Querés hacer una pregunta o informar de un error?:</h4><br>
+                  <h4 style="color: #9ACD32;">¿Querés hacer una pregunta o informar de algún error?:</h4><br>
 
                   <textarea placeholder="Dejá tu mensaje acá..." name="comentarios" width="inherit"></textarea><br>
                   <button type="submit">Enviar informe</button>

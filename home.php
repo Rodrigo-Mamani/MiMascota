@@ -14,11 +14,11 @@
 
 
                       <nav class="border-bottom border-success d-flex navbar navbar-expand-lg">
-                        <a href="home.html"><img class="logo" src="imagenes/logo.jpg" width="81px"></a>
+                        <a href="home.php"><img class="logo" src="imagenes/logo.jpg" width="81px"></a>
                             <h1 class="tihome">MiMascota!</h1>
 
                             <form class="d-flex ml-auto form-inline my-2 my-lg-0">
-                              <input class="form-control mr-sm-2" type="search" placeholder="buscar" aria-label="search">
+                              <input class="form-control mr-sm-2" type="search" placeholder="¿Qué estás buscando?" aria-label="search">
                               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                                       <i class="icon ion-md-search"></i>
                               </button>
@@ -40,15 +40,18 @@
                         <a class="d-flex nav-link" href="#"><i class="icon ion-md-mail-unread mr-1"></i><div class="items-barra"> Mensajes </div></a>
                       </li>
                       <li class="nav-item">
-                        <a class="d-flex nav-link" href="#"><i class="icon ion-md-person mr-1"></i><div class="items-barra"> Solicitudes </div></a>
+                        <a class="d-flex nav-link" href="#"><i class="icon ion-md-person-add mr-1"></i><div class="items-barra"> Solicitudes </div></a>
                       </li>
                       <li class="nav-item">
                         <a class="d-flex nav-link" href="questions.php"><i class="icon ion-md-help mr-1"></i><div class="items-barra"> Preguntas frecuentes </div></a>
                       </li>
                       <li class="nav-item">
-                          <a class="d-flex nav-link" href="#"><i class="icon ion-md-settings mr-1"></i><div class="items-barra"> Configuraciones </div></a>
+                          <a class="d-flex nav-link" href="#"><i class="icon ion-md-settings mr-1"></i><div class="items-barra"> Configuración </div></a>
                         </li>
-                        <li class="nav-item">
+                      <li class="nav-item">
+                          <a class="d-flex nav-link" href="perfil(PRUEBA).php"><i class="icon ion-md-contact mr-1"></i><div class="items-barra"> Mi perfil </div></a>
+                        </li>
+                      <li class="nav-item">
                           <a class="d-flex nav-link" href="login.php"><i class="icon ion-md-log-out mr-1"></i><div class="items-barra"> Salir </div></a>
                         </li>
                     </ul>
@@ -65,7 +68,7 @@
                                   <div class="my-3">
                                               <article class="articulo-2 justify-content-center mb-3">
                                                 <div class="row justify-content-center">
-                                                    <input class="col-10 form-control" type="text" placeholder="Escribe algo interesante...">
+                                                    <input class="col-10 form-control" type="text" placeholder="Cuéntanos algo interesante...">
                                                     <div class="col-4 m-2">
                                                         <button type="button" class="btn btn-secondary btn-sm" style="border: solid rgb(138, 2, 2) 1px;">Seleccionar foto/video</button>
                                                     </div>

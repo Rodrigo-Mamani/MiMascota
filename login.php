@@ -68,7 +68,7 @@ if($_POST){
 
 
                       <nav class="border-bottom border-success d-flex navbar navbar-expand-lg">
-                        <a href="home.php"><img class="logo" src="imagenes/logo.jpg" width="81px"></a>
+                        <img class="logo" src="imagenes/logo.jpg" width="81px">
                             <h1 class="tilogin">MiMascota!</h1>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                               <span class="navbar-toggler-icon"></span>
@@ -80,7 +80,7 @@ if($_POST){
             <div class="barra-navegacion">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="d-flex nav-link active" href="login.php"><i class="icon ion-md-log-in mr-1"></i><div class="items-barra"> Loguin </div></a>
+                        <a class="d-flex nav-link active" href="login.php"><i class="icon ion-md-log-in mr-1"></i><div class="items-barra"> Login </div></a>
                       </li>
                       <li class="nav-item">
                           <a class="d-flex nav-link" href="register.php"><i class="icon ion-md-checkmark-circle-outline mr-1"></i><div class="items-barra"> Registrate </div></a>

@@ -14,7 +14,7 @@ include_once("funciones.php");
             $errores = array_merge($errores, $erroresAvatar);
         // 5 - vuelvo a validar $errores
             if(count($errores) == 0) {
-              
+
         // 6 - Guardo usuario y lo mando a loguearse
                 saveUser($usuario);
                 header('Location: login.php');
@@ -41,7 +41,7 @@ include_once("funciones.php");
 
 
                       <nav class="border-bottom border-success d-flex navbar navbar-expand-lg">
-                      <a href="home.html"><img class="logo" src="imagenes/logo.jpg" width="81px"></a>
+                      <img class="logo" src="imagenes/logo.jpg" width="81px">
                             <h1>MiMascota!</h1>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                               <span class="navbar-toggler-icon"></span>
@@ -67,10 +67,10 @@ include_once("funciones.php");
                                 <div class="form-row justify-content-center align-self-center mt-5 ml-5 mr-5">
 
 
-                                            
-                                          
-                                
-                                             
+
+
+
+
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" >Nombre de Usuario</label>
                                                   <input name="username"  class="form-control" placeholder="Nombre de usuario">
@@ -86,7 +86,7 @@ include_once("funciones.php");
                                                   <label style="font-weight: 700;" for="avatar">Cargar foto de perfil</label><br>
                                                   <input type="file" name="avatar">
                                                   <span id='register_avatar_errorloc' style="color: red"><?=isset($errores["avatar"])?$errores["avatar"]:""?></span>
-                                                      
+
                                             </div>
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" for="inputPassword4">Contraseña</label>
@@ -103,20 +103,20 @@ include_once("funciones.php");
                                                   <label for="confirm">Acepto los términos y condiciones</label>
                                                   <input type="checkbox" name="confirm"><br>
                                                   <span style="color: red"><?=isset($errores["confirm"]) ? $errores["confirm"] : "" ?></span>
-                                                  
-                                                  
+
+
                                             </div>
                                             <div class="form-group col-md-8">
-                                                    
+
                                                       <div class="row justify-content-center mt-5">
                                                             <button href="home.php" name="submit" type="submit" class="col-8 btn btn-dark" style="margin-bottom: 50px;">Registrarse</button>
                                                       </div>
                                                 </div>
-                                                
-                                                
+
+
                                 </div>
 
-                              
+
               </form>
               <a class="texto-link" href="login.php">¿Ya tienes una cuenta? Haz click aquí</a>
             </div>
