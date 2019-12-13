@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="css/styles.css">
         <link href = "https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"  rel = "stylesheet" >
 
-
     </head>
     <body>
         <div class="container-fluid">
@@ -32,7 +31,7 @@
               <div class="barra-navegacion">
                   <ul class="nav nav-tabs my-3 my-lg-0">
                       <li class="nav-item">
-                        <a class="d-flex nav-link active" href="#"><i class="icon ion-md-home mr-1"></i><div class="items-barra"> Home </div></a>
+                        <a class="d-flex nav-link active" href="home.php"><i class="icon ion-md-home mr-1"></i><div class="items-barra"> Home </div></a>
                       </li>
                       <li class="nav-item">
                         <a class="d-flex nav-link" href="#"><i class="icon ion-md-notifications mr-1"></i><div class="items-barra"> Notificaciones </div></a>
@@ -44,13 +43,13 @@
                         <a class="d-flex nav-link" href="#"><i class="icon ion-md-person mr-1"></i><div class="items-barra"> Solicitudes </div></a>
                       </li>
                       <li class="nav-item">
-                        <a class="d-flex nav-link" href="questions.html"><i class="icon ion-md-help mr-1"></i><div class="items-barra"> Preguntas frecuentes </div></a>
+                        <a class="d-flex nav-link" href="questions.php"><i class="icon ion-md-help mr-1"></i><div class="items-barra"> Preguntas frecuentes </div></a>
                       </li>
                       <li class="nav-item">
                           <a class="d-flex nav-link" href="#"><i class="icon ion-md-settings mr-1"></i><div class="items-barra"> Configuraciones </div></a>
                         </li>
                         <li class="nav-item">
-                          <a class="d-flex nav-link" href="login.html"><i class="icon ion-md-log-out mr-1"></i><div class="items-barra"> Salir </div></a>
+                          <a class="d-flex nav-link" href="login.php"><i class="icon ion-md-log-out mr-1"></i><div class="items-barra"> Salir </div></a>
                         </li>
                     </ul>
               </div>
@@ -87,8 +86,9 @@
                                                   </div>
 
                                               <div>
-                                                  <i class="icon ion-md-thumbs-up"></i>
-                                                <i class="icon ion-md-chatbubbles"></i>
+                                                <strong><i class="icon ion-md-thumbs-up"></i><?=rand(1,100)?>
+                                              <i class="icon ion-md-chatbubbles"></i><?=rand(1,100)?></strong>
+                                              <i>(hace <?=rand(1,2)?> hora/s)</i>
                                               </div>
 
                                               <div class="d-flex justify-content-center">
@@ -105,8 +105,9 @@
                                                 </div>
 
                                             <div>
-                                                <i class="icon ion-md-thumbs-up"></i>
-                                              <i class="icon ion-md-chatbubbles"></i>
+                                              <strong><i class="icon ion-md-thumbs-up"></i><?=rand(1,100)?>
+                                            <i class="icon ion-md-chatbubbles"></i><?=rand(1,100)?></strong>
+                                              <i>(hace <?=rand(2,3)?> hora/s)</i>
                                             </div>
 
                                             <div class="d-flex justify-content-center">
@@ -125,8 +126,9 @@
                                               </div>
 
                                           <div>
-                                              <i class="icon ion-md-thumbs-up"></i>
-                                            <i class="icon ion-md-chatbubbles"></i>
+                                            <strong><i class="icon ion-md-thumbs-up"></i><?=rand(1,100)?>
+                                          <i class="icon ion-md-chatbubbles"></i><?=rand(1,100)?></strong>
+                                          <i>(hace <?=rand(3,4)?> hora/s)</i>
                                           </div>
 
                                           <div class="d-flex justify-content-center">
@@ -145,8 +147,9 @@
                                             </div>
 
                                         <div>
-                                            <i class="icon ion-md-thumbs-up"></i>
-                                          <i class="icon ion-md-chatbubbles"></i>
+                                          <strong><i class="icon ion-md-thumbs-up"></i><?=rand(1,100)?>
+                                        <i class="icon ion-md-chatbubbles"></i><?=rand(1,100)?></strong>
+                                        <i>(hace <?=rand(4,5)?> hora/s)</i>
                                         </div>
 
                                         <div class="d-flex justify-content-center">
@@ -154,7 +157,7 @@
 
                                         </div>
                                   </div>
-                                  <button class="col-12">Ver más</button>
+                                  <button class="col-12">Ver más publicaciones</button>
 
 
 
@@ -205,9 +208,6 @@
                       </article>
                       <article class="d-flex justify-content-center my-3">
                          <h5 class="w-100 text-left">Cobertura médica</h5>
-                      </article>
-                      <article class="d-flex justify-content-center my-3">
-                         <h5 class="w-100 text-left">Explorar más</h5>
                       </article>
 
                       </section>

@@ -1,48 +1,27 @@
 <?php
-if ($_POST){
 
-  if (!$_POST["nombre"]) {
-    $errores["nombre"]="El campo no puede ser vacio";
-  } elseif (strlen($_POST["nombre"])<3|| strlen($_POST["nombre"])>14) {
-    $errores["nombre"]="Debe tener entre 3 y 14 caracteres";
-  } else {
-    $nombre=$_POST["nombre"];
-  }
+include_once("funciones.php");
 
-
-  if (!$_POST["apellido"]) {
-    $errores["apellido"]="El campo no puede ser vacio";
-  } elseif (strlen($_POST["apellido"])<3|| strlen($_POST["apellido"])>14) {
-    $errores["apellido"]="Debe tener entre 3 y 14 caracteres";
-  } else {
-    $apellido=$_POST["apellido"];
-  }
-
-
-  if (!$_POST["email"]) {
-    $errores["email"]="El campo no puede ser vacio";
-  } elseif (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false) {
-    $errores["email"]="El email no tiene el formato correcto";
-  } else {
-    $email=$_POST["email"];
-  }
-
-  if (!$_POST["password"]) {
-    $errores["password"]="El campo no puede ser vacio";
-  } elseif (strlen($_POST["password"])<8|| strlen($_POST["password"])>16) {
-    $errores["password"]="La contraseña debe tener entre 8 y 16 caracteres";
-  } elseif ($_POST["password"]!=$_POST["confirmarPassword"]){
-    $errores["password"]="Las contraseñas no coinciden";
-  }
-
-  if (count($errores)==0) {
-    header("location:home.php");exit;
-  }
-
-}
-
-
-
+    if($_POST) {
+        // 1 - Validar
+        $errores = validate($_POST);
+        // 2 - Crear Usuario
+        if(count($errores) == 0) {
+            $usuario = createUser($_POST);
+        // 3 - Validacion del avatar
+            $erroresAvatar = saveAvatar($usuario);
+        // 4 - Merge de errores (uno los arrays de errores)
+            $errores = array_merge($errores, $erroresAvatar);
+        // 5 - vuelvo a validar $errores
+            if(count($errores) == 0) {
+              
+        // 6 - Guardo usuario y lo mando a loguearse
+                saveUser($usuario);
+                header('Location: login.php');
+                exit;
+            }
+        }
+    }
 
  ?>
 <!DOCTYPE html>
@@ -62,6 +41,7 @@ if ($_POST){
 
 
                       <nav class="border-bottom border-success d-flex navbar navbar-expand-lg">
+                      <a href="home.html"><img class="logo" src="imagenes/logo.jpg" width="81px"></a>
                             <h1>MiMascota!</h1>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                               <span class="navbar-toggler-icon"></span>
@@ -82,57 +62,63 @@ if ($_POST){
             </div>
 
             <div class="row d-flex justify-content-center">
-                <form action="register.php" method="post" enctype="multipart/form-data">
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post" enctype="multipart/form-data">
                     <legend class="titulo-form">Registrate!</legend>
                                 <div class="form-row justify-content-center align-self-center mt-5 ml-5 mr-5">
 
-                                            <div class="form-row">
-                                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                                      <input type="text" name="nombre" class="form-control" placeholder="Nombre">
-                                                      <span id='register_name_errorloc' class='error'><?=isset($errores["nombre"])?$errores["nombre"]:""?></span>
-                                                  </div>
-                                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                                    <input type="text" name="apellido" class="form-control" placeholder="Apellido">
-                                                    <span id='register_name_errorloc' class='error'><?=isset($errores["apellido"])?$errores["apellido"]:""?></span>
-                                                  </div>
+
+                                            
+                                          
+                                
+                                             
+                                            <div class="form-group col-md-8">
+                                                  <label style="font-weight: 700;" >Nombre de Usuario</label>
+                                                  <input name="username"  class="form-control" placeholder="Nombre de usuario">
+                                                  <span id='register_username_errorloc' style="color: red"><?=isset($errores["username"])?$errores["username"]:""?></span>
                                             </div>
 
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" for="inputEmail4">Email</label>
                                                   <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Usuario@gmail.com">
-                                                  <span id='register_name_errorloc' class='error'><?=isset($errores["email"])?$errores["email"]:""?></span>
+                                                  <span id='register_email_errorloc' style="color: red"><?=isset($errores["email"])?$errores["email"]:""?></span>
+                                            </div>
+                                            <div class="form-group col-md-8">
+                                                  <label style="font-weight: 700;" for="avatar">Cargar foto de perfil</label><br>
+                                                  <input type="file" name="avatar">
+                                                  <span id='register_avatar_errorloc' style="color: red"><?=isset($errores["avatar"])?$errores["avatar"]:""?></span>
+                                                      
                                             </div>
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" for="inputPassword4">Contraseña</label>
                                                   <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Escribe algo que recuerdes">
-                                                  <span id='register_password_errorloc' class='error'><?=isset($errores["password"])?$errores["password"]:""?></span>
+                                                  <span id='register_password_errorloc' style="color: red"><?=isset($errores["password"])?$errores["password"]:""?></span>
                                             </div>
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" for="inputPassword4">Confirmar contraseña</label>
                                                   <input type="password" name="confirmarPassword" class="form-control" id="inputPassword4" placeholder="Repite la contraseña">
-                                                  <span id='register_password_errorloc' class='error'><?=isset($errores["confirmarPassword"])?$errores["confirmarPassword"]:""?></span>
+                                                  <span id='register_password_errorloc' style="color: red"><?=isset($errores["confirmarPassword"])?$errores["confirmarPassword"]:""?></span>
 
                                             </div>
+                                            <div class="form-group col-md-8">
+                                                  <label for="confirm">Acepto los términos y condiciones</label>
+                                                  <input type="checkbox" name="confirm"><br>
+                                                  <span style="color: red"><?=isset($errores["confirm"]) ? $errores["confirm"] : "" ?></span>
+                                                  
+                                                  
+                                            </div>
+                                            <div class="form-group col-md-8">
+                                                    
+                                                      <div class="row justify-content-center mt-5">
+                                                            <button href="home.php" name="submit" type="submit" class="col-8 btn btn-dark" style="margin-bottom: 50px;">Registrarse</button>
+                                                      </div>
+                                                </div>
+                                                
+                                                
                                 </div>
 
-                              <div class="row justify-content-center">
-                                      <div class="col-8">
-                                          <div class="row">
-                                                  <div class="form-group">
-
-                                                            <input type="checkbox" name="confirm" id="gridCheck">
-                                                            <label for="confirm">
-                                                              Acepto los términos y condiciones
-                                                            </label>
-
-                                                        </div>
-                                          </div>
-                                      </div>
-                                            <button href="home.php" type="submit" class="col-8 btn btn-dark" style="margin-bottom: 50px;">Registrarse</button>
-                              </div>
-
+                              
               </form>
-              <a class="texto-link" href="login.html">¿Ya tienes una cuenta? Haz click aquí</a>
+              <a class="texto-link" href="login.php">¿Ya tienes una cuenta? Haz click aquí</a>
             </div>
         </div>
     </body>
