@@ -44,7 +44,7 @@ function validate($datos)
         $errores['email'] = "El formato es inválido";
     }elseif(buscamePorEmail($email)==true){
         $errores['email'] = "El email ya está registrado";
-      
+
     }
 
     if(empty($datos['password'])) {
@@ -230,7 +230,7 @@ function saveAvatar($usuario)
 
         $miArchivo = dirname(__FILE__);
 
-        $miArchivo = $miArchivo . "/img/";
+        $miArchivo = $miArchivo . "/imagenes/";
 
         $miArchivo = $miArchivo. "perfil" . $id . "." . $ext;
 
