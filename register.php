@@ -1,22 +1,23 @@
 <?php
-
-include_once("funciones.php");
+require_once("soporte.php");
+require_once("clases/usuario.php");
 
     if($_POST) {
+        $username=$_POST["username"];
+        $email=$_POST["email"];
         // 1 - Validar
-        $errores = validate($_POST);
+        $errores = $validador->validar($_POST);
         // 2 - Crear Usuario
         if(count($errores) == 0) {
-            $usuario = createUser($_POST);
+            $usuario = new Usuario($_POST["username"],$_POST["email"],$_POST["password"]);
         // 3 - Validacion del avatar
-            $erroresAvatar = saveAvatar($usuario);
-        // 4 - Merge de errores (uno los arrays de errores)
-            $errores = array_merge($errores, $erroresAvatar);
-        // 5 - vuelvo a validar $errores
+            $erroresAvatar = $usuario->guardarAvatar();
+        // 4 - Merge de errores (uno los arrays de errores, los que retorna validar() y guardarAvatar())
+            $errores = array_merge($erroresAvatar, $errores);
+        // 5 - vuelvo a verificar si hay errores
             if(count($errores) == 0) {
-
         // 6 - Guardo usuario y lo mando a loguearse
-                saveUser($usuario);
+                $db->guardarUsuario($usuario);
                 header('Location: login.php');
                 exit;
             }
@@ -41,7 +42,7 @@ include_once("funciones.php");
 
 
                       <nav class="border-bottom border-success d-flex navbar navbar-expand-lg">
-                      <img class="logo" src="imagenes/logo.jpg" width="81px">
+                      <a href="home.html"><img class="logo" src="imagenes/logo.jpg" width="81px"></a>
                             <h1>MiMascota!</h1>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                               <span class="navbar-toggler-icon"></span>
@@ -53,10 +54,10 @@ include_once("funciones.php");
             <div class="barra-navegacion">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                      <a class="nav-link active" href="#"><i class="icon ion-md-checkmark-circle-outline"></i><div class="items-barra"> Registrate </div></a>
-                    </li>
+                          <a class="d-flex nav-link" href="register.php"><i class="icon ion-md-checkmark-circle-outline mr-1"></i><div class="items-barra"> Registrate </div></a>
+                        </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php"><i class="icon ion-md-arrow-back"></i><div class="items-barra mr-1"> Atrás </div></a>
+                        <a class="d-flex nav-link" href="login.php"><i class="icon ion-md-arrow-back"></i><div class="items-barra mr-1"> Atrás </div></a>
                       </li>
                   </ul>
             </div>
@@ -73,35 +74,35 @@ include_once("funciones.php");
 
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" >Nombre de Usuario</label>
-                                                  <input name="username"  class="form-control" placeholder="Nombre de usuario">
-                                                  <span id='register_username_errorloc' style="color: red"><?=isset($errores["username"])?$errores["username"]:""?></span>
+                                                  <input name="username" value="" class="form-control" placeholder="Nombre de usuario">
+                                                  <span id="register_username_errorloc" style="color: red"><?=isset($errores["username"])? $errores["username"] : "" ?></span>
                                             </div>
 
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" for="inputEmail4">Email</label>
-                                                  <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Usuario@gmail.com">
-                                                  <span id='register_email_errorloc' style="color: red"><?=isset($errores["email"])?$errores["email"]:""?></span>
+                                                  <input type="email" name="email" value="" class="form-control" id="inputEmail4" placeholder="Usuario@gmail.com">
+                                                  <span id="register_username_errorloc" style="color: red"><?=isset($errores["email"])? $errores["email"] : "" ?></span>
                                             </div>
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" for="avatar">Cargar foto de perfil</label><br>
                                                   <input type="file" name="avatar">
-                                                  <span id='register_avatar_errorloc' style="color: red"><?=isset($errores["avatar"])?$errores["avatar"]:""?></span>
+                                                  <span id="register_username_errorloc" style="color: red"><?=isset($errores["avatar"])? $errores["avatar"] : "" ?></span>
 
                                             </div>
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" for="inputPassword4">Contraseña</label>
                                                   <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Escribe algo que recuerdes">
-                                                  <span id='register_password_errorloc' style="color: red"><?=isset($errores["password"])?$errores["password"]:""?></span>
+                                                  <span id="register_username_errorloc" style="color: red"><?=isset($errores["password"])? $errores["password"] : "" ?></span>
                                             </div>
                                             <div class="form-group col-md-8">
                                                   <label style="font-weight: 700;" for="inputPassword4">Confirmar contraseña</label>
                                                   <input type="password" name="confirmarPassword" class="form-control" id="inputPassword4" placeholder="Repite la contraseña">
-                                                  <span id='register_password_errorloc' style="color: red"><?=isset($errores["confirmarPassword"])?$errores["confirmarPassword"]:""?></span>
+
 
                                             </div>
                                             <div class="form-group col-md-8">
                                                   <label for="confirm">Acepto los términos y condiciones</label>
-                                                  <input type="checkbox" name="confirm"><br>
+                                                  <input type="checkbox"  name="confirm"><br>
                                                   <span style="color: red"><?=isset($errores["confirm"]) ? $errores["confirm"] : "" ?></span>
 
 
