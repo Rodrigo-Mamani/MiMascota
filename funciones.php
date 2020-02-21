@@ -2,21 +2,9 @@
 session_start();
 
 
+//function validate($datos){
 
-// Helpers!
-function dd($var)
-{
-    echo"<pre>";
-    die(var_dump($var));
-    echo "</pre>";
-}
-
-function old($user_input)
-{
-    if (isset($_POST["$user_input"])) {
-        return $_POST["$user_input"];
-    }
-}
+//}
 
 
 
