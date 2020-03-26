@@ -36,31 +36,36 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
-                    <div class="p-3">
+                        <div class="p-3">
+                            <h2 style="text-align: center">Estas en tu perfil  {{ Auth::user()->name }}!</h2>
+                            <h4 style="text-align: center"><a href="{{ route('home') }}">Volver al inicio</a></h4>
                             <ul style="padding-left:0px">
-                            
-                                @foreach($posts as $post)
+                            @foreach($users as $user)
+                            @if($user->id == Auth::user()->id)
+                            @foreach($user['posts'] as $post)
                                 <div class="row justify-content-center">
                                     <div class="col-12 p-3">
-                                            <div class="col-8 mx-auto" style="z-index: 1">
+                                            <div class="col-7 mx-auto" style="z-index: 1">
                                                     <div class="position-absolute" style="z-index: 2;right:10px;top:0px"><a href="#" >
-                                                       
                                                         <div class="nav-item dropdown">
                                                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                                     <span class="caret"></span>
                                                                 </a>
                                                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                                                <a class="dropdown-item" href="#" onclick="return confirm('¿Seguro que desea eliminar?')">{{ __('Eliminar publicación') }}<ion-icon name="trash-outline"></ion-icon></a>
+                                                                    <form action="{{ route('post.delete') }}" method="POST">
+                                                                        @csrf
+                                                                        <input type="hidden" name="id" value="{{$post['id']}}">
+                                                                        <input class="dropdown-item" onclick="return confirm('¿Seguro que desea eliminar?')" type="submit" name="" value="Eliminar publicación">
+                                                                    </form>
                                                                 </div>                                         
                                                         </div>
                                                     </div>
                                                     <div class="cubo">
-                                                        <img src="/storage/{{$post->image}}" alt="" width="100%">
+                                                    <img src="/storage/{{$post['image']}}" alt="" width="100%"><br>
                                                     </div>
                                             </div>
-                                            <div class="col-8 mx-auto">
-                                                <div class="card text-center">
+                                            <div class="col-7 mx-auto">
+                                            <div class="card text-center">
                                                     <!--<div class="card-header">
                                                         Featured
                                                     </div>-->
@@ -74,12 +79,11 @@
                                             </div>
                                     </div>
                                 </div>
-                                @endforeach 
-                                {{$posts->links()}}
+                                @endforeach
+                                @endif
+                                @endforeach
                             </ul>
                         </div>
-                    
-                    
                 </div>
             </div>
         </div>

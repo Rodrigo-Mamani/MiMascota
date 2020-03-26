@@ -17,28 +17,27 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Styles -->
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link href = "https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"  rel = "stylesheet" >
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div class="overflow-hidden" style="height: 100px"><img src="/storage/imagenes/baner.png" alt="" width="100%"></div>
     <div id="app">
-        
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <!-- <img src="/storage/imagenes/baner.png" alt="" width="100%"> -->
+            <div class="container-fluid">
+                <nav class="border-bottom border-success d-flex navbar navbar-expand-lg">
+                    <a href="{{ url('/') }}" style="margin: auto"><h1 class="tihome">MiMascota!</h1></a>
+                </nav>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Lado izquierdo de la barra de navegacion -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Lado derecho de la barra de navegacion -->
+            </div>
+            <div class="container">                   
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm border-top">
+                @auth
+                                    <input class="form-control mr-sm-2" type="search" placeholder="¿Qué estás buscando?" aria-label="search">
+                                    <button class="btn btn-outline boton_personalizado border my-2 my-sm-0" type="submit">
+                                            <i class="icon ion-md-search"></i>
+                                    </button>
+                                    @endauth
                     <ul class="navbar-nav ml-auto">
                         <!-- Enlaces de autenticacion -->
                         @guest
@@ -50,6 +49,9 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Registrate') }}</a>
                                 </li>
                             @endif
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{url('/')}}">Salir</a>
+                                </li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -57,6 +59,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('perfil')}}">{{ __('Mi perfil') }}</a>
+                                <a class="dropdown-item" href="#">{{ __('Preguntas frecuentes') }}</a>
+                                <a class="dropdown-item" href="#">{{ __('Configuración') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -70,13 +75,12 @@
                             </li>
                         @endguest
                     </ul>
-                </div>
-            </div>
         </nav>
-
+        </div> 
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+    <script src = "https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
 </html>

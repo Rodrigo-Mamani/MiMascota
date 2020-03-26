@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                                <button type="submit" class="btn btn-success">
+                                <button class="boton_personalizado" type="submit">
                                     Registrarse
                                 </button>
                         </div>

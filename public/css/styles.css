@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+}
+h1{
+    color: white;
+    margin: auto;
+}
+.tihome, .tilogin{
+    color: white;
+  }
+
+.container-fluid{
+    background-image: url(../storage/imagenes/baner.png);
+    position: fixed;
+    z-index: 4;
+    padding: 0;
+}
+
+.container{
+    position: relative;
+    top: 100px;
+}
+.nav-link{
+    color: rgb(51, 51, 51);
+}
+.nav-link:hover{
+    color: green;
+}
+.baner{
+    width: 100%;
+    height: 300px;
+    border: solid  1px;
+    padding: 5px;
+}
+
+.articulo-2{
+    background-color: rgb(255, 255, 255);
+
+    border: solid rgb(138, 2, 2) 1px;
+
+}
+.texto-link{
+    color: #9ACD32;
+}
+.boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #9ACD32;
+    border-radius: 6px;
+    border: 2px solid black;
+}
+  .boton_personalizado:hover{
+    color: #9ACD32;
+    background-color: #ffffff;
+}
+.titulo-form{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 15px;
+}
+#preguntas{
+    font-size: 35px;
+}
+h4{
+    font-size: 24px;
+}
+.cubo{
+    background-color: rgb(121, 121, 121);
+    overflow: hidden;
+    border-color: rgb(0, 0, 0);
+    padding: 10px;
+}
+.respuesta{
+    font-size: 16px;
+}
+@media(max-width:540px){
+    .form-control.mr-sm-2{
+        display: none;
+    }
+    .titulo-presentacion{
+        font-size: 1.3em;
+    }
+    h2{
+        font-size: 1em;
+    }
+    .seccion-3{
+        display: none;
+    }
+    .seccion-2{
+        display: none;
+    }
+    .barra-navegacion{
+        background-color: rgb(8, 19, 53);
+    }
+    .nav-link{
+        color: white;
+    }
+    .items-barra{
+        display: none;
+    }
+
+    .nav-item{
+        width: 40px;
+        display: flex;
+        justify-content: center;
+    }
+    i{
+        margin-left: 4px;
+    }
+}
+@media(max-width:980px){
+    .form-control.mr-sm-2{
+        display: none;
+    }
+    .container{
+        top: 73px;
+    }
+    .titulo-presentacion{
+        font-size: 2em;
+    }
+    h2{
+        font-size: 1.3em;
+    }
+    #preguntas{
+        font-size: 24px;
+    }
+    h4{
+        font-size: 18px;
+    }
+    .respuesta{
+        font-size: 13px;
+    }
+    .seccion-3{
+        display: none;
+    }
+    .barra-navegacion{
+        background-color: rgb(8, 19, 53);
+        width: 100%;
+    }
+    .nav-link{
+        color: white;
+    }
+    .items-barra{
+        display: none;
+    }
+    i{
+        margin-left: 4px;
+    }
+    .nav-item{
+        width: 40px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.logo{
+  border-radius: 50%;
+  margin-left: -11px;
+}
+
+textarea{
+  resize: none;
+  width: -webkit-fill-available;
+}
+.info{
+  height: 80px;
+}
+footer{
+  background-color: #2c3e50;
+  color: #ffffff;
+  margin: 0px -100%;
+}
+
+footer h6{
+  color: #ffffff;
+  background-color: #1a252f;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: auto;
+}
