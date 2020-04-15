@@ -10,7 +10,7 @@
                     <h1>{{ __('Registración') }}</h1>
                 </div>
                 <div>
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    <form class="formulario" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
@@ -51,6 +51,18 @@
                                     @enderror
                         </div>
 
+                        <div class="form-group">
+                                <label for="pais">Pais</label>
+                                <select name="paises" id="paises">
+
+                                </select>
+
+                                    <label for="provincia">Provincia</label>
+                                <select name="provincias" id="provincias">
+
+                                </select>
+                        </div>
+
 
                         <div class="form-group">
                             <label for="avatar">Foto de perfil:</label><br>
@@ -84,4 +96,7 @@
             
     </div>
 </div>
+@section('scripts')
+    <script src="{{ asset('../resources/app.js') }}" defer></script>
+@endsection
 @endsection

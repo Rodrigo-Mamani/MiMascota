@@ -23,7 +23,6 @@
 </head>
 <body>
     <div id="app">
-            <!-- <img src="/storage/imagenes/baner.png" alt="" width="100%"> -->
             <div class="container-fluid">
                 <nav class="border-bottom border-success d-flex navbar navbar-expand-lg">
                     <a href="{{ url('/') }}" style="margin: auto"><h1 class="tihome">MiMascota!</h1></a>
@@ -81,6 +80,6 @@
             @yield('content')
         </main>
     </div>
-    <script src = "https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <!--<script src = "https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>-->
 </body>
 </html>
