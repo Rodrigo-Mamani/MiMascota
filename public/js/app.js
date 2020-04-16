@@ -49632,6 +49632,20 @@ selectPassword.onblur = function () {
   };
 };
 
+var btnEstilo = document.getElementById("btnEstilo");
+var count = 0;
+btnEstilo.addEventListener("click", function () {
+  btnEstilo.addEventListener("click", function () {
+    count++;
+
+    if (count % 2 == 0) {
+      document.body.style.background = "white";
+    } else if (count % 2 != 0) {
+      document.body.style.background = "black";
+    }
+  });
+}, false);
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

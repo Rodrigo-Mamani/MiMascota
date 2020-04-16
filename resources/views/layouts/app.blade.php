@@ -39,6 +39,9 @@
                                     @endauth
                     <ul class="navbar-nav ml-auto">
                         <!-- Enlaces de autenticacion -->
+                            <li class="nav-item">
+                                <button id="btnEstilo">Boton</button>
+                            </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
