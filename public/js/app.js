@@ -49527,17 +49527,15 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
-var formularioRegistro = document.forms[0];
+var formularioRegistro = document.querySelector('#theForm');
 var selectName = formularioRegistro.elements[1];
 var selectSurname = formularioRegistro.elements[2];
 var selectUsername = formularioRegistro.elements[3];
 var selectEmail = formularioRegistro.elements[4];
 var selectPaises = formularioRegistro.elements[5];
 var selectProvincias = formularioRegistro.elements[6];
-var selectPassword = formularioRegistro.elements[7];
-var selectPasswordConfirm = formularioRegistro.elements[8];
-var formularioLogin = document.forms[1];
-console.log(formularioLogin);
+var selectPassword = formularioRegistro.elements[8];
+var selectPasswordConfirm = formularioRegistro.elements[9];
 
 selectName.onblur = function () {
   if (this.value.trim() == '') {
@@ -49573,61 +49571,65 @@ selectEmail.onblur = function () {
   }
 };
 
-formularioRegistro.onsubmit = function (event) {
-  if (selectName.value.trim() == '' || selectSurname.value.trim() == '' || selectUsername.value.trim() == '' || selectEemail.value.trim() == '' || selectPassword.value.trim() == '' || selectPasswordConfirm.value.trim() == '') {
-    alert('Completa todos los campos');
+selectPassword.onblur = function () {
+  if (this.value.trim() == '') {
+    alert('Escribe una contraseña');
   }
-};
 
-var option = document.createElement('option');
-var optionText = document.createTextNode('Elegir país');
-option.append(optionText);
-selectPaises.append(option);
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.open("GET", "http://pilote.techo.org/?do=api.getPaises", true);
-xmlhttp.send();
-
-xmlhttp.onreadystatechange = function () {
-  if (this.readyState == 4 && this.status == 200) {
-    var options = JSON.parse(this.responseText);
-    var contenido = options.contenido;
-
-    for (var pais in contenido) {
-      var option = document.createElement('option');
-      var optionText = document.createTextNode(pais);
-      option.append(optionText);
-      selectPaises.append(option);
-      var value = contenido[pais];
-      option.setAttribute("value", value);
+  formularioRegistro.onsubmit = function () {
+    if (selectName.value.trim() == '' || selectSurname.value.trim() == '' || selectUsername.value.trim() == '' || selectEemail.value.trim() == '' || selectPassword.value.trim() == '' || selectPasswordConfirm.value.trim() == '') {
+      alert('Completa todos los campos');
     }
-  }
-};
+  };
 
-selectPaises.onchange = function () {
-  var optionPais = this.options[this.selectedIndex];
-  var value = optionPais.getAttribute("value");
+  var option = document.createElement('option');
+  var optionText = document.createTextNode('Elegir país');
+  option.append(optionText);
+  selectPaises.append(option);
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", "http://pilote.techo.org/?do=api.getPaises", true);
+  xmlhttp.send();
 
-  if (value == 1) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "http://pilote.techo.org/?do=api.getRegiones?idPais=1", true);
-    xmlhttp.send();
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      var options = JSON.parse(this.responseText);
+      var contenido = options.contenido;
 
-    xmlhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        var options = JSON.parse(this.responseText);
-        var contenido = options.contenido;
-
-        for (var provincia in contenido) {
-          var option = document.createElement('option');
-          var optionText = document.createTextNode(provincia);
-          option.append(optionText);
-          selectProvincias.append(option);
-        }
+      for (var pais in contenido) {
+        var option = document.createElement('option');
+        var optionText = document.createTextNode(pais);
+        option.append(optionText);
+        selectPaises.append(option);
+        var value = contenido[pais];
+        option.setAttribute("value", value);
       }
-    };
-  } else {
-    selectProvincias.innerHTML = "";
-  }
+    }
+  };
+
+  selectPaises.onchange = function () {
+    var optionPais = this.options[this.selectedIndex];
+    var value = optionPais.getAttribute("value");
+
+    if (value == 1) {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("GET", "http://pilote.techo.org/?do=api.getRegiones?idPais=1", true);
+      xmlhttp.send();
+
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var options = JSON.parse(this.responseText);
+          var contenido = options.contenido;
+
+          for (var provincia in contenido) {
+            var option = document.createElement('option');
+            var optionText = document.createTextNode(provincia);
+            option.append(optionText);
+            selectProvincias.append(option);
+          }
+        }
+      };
+    }
+  };
 };
 
 /***/ }),

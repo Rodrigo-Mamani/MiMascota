@@ -32,20 +32,15 @@ const app = new Vue({
     el: '#app',
 });
 
-var formularioRegistro = document.forms[0];
+var formularioRegistro = document.querySelector('#theForm');
 var selectName = formularioRegistro.elements[1];
 var selectSurname = formularioRegistro.elements[2];
 var selectUsername = formularioRegistro.elements[3];
 var selectEmail = formularioRegistro.elements[4];
 var selectPaises = formularioRegistro.elements[5];
 var selectProvincias = formularioRegistro.elements[6];
-var selectPassword = formularioRegistro.elements[7];
-var selectPasswordConfirm = formularioRegistro.elements[8];
-
-var formularioLogin = document.forms[1];
-var campoEmail = formularioRegistro.elements[1];
-var campoPassword = formularioRegistro.elements[2];
-console.log(formularioLogin);
+var selectPassword = formularioRegistro.elements[8];
+var selectPasswordConfirm = formularioRegistro.elements[9];
 
 selectName.onblur = function(){
     if(this.value.trim() == ''){
@@ -72,6 +67,7 @@ selectUsername.onblur = function(){
 }
 
 var regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
 selectEmail.onblur = function(){
     if(this.value.trim() == ''){
         alert('El email es obligatorio');
@@ -80,7 +76,12 @@ selectEmail.onblur = function(){
     }
 }
 
-formularioRegistro.onsubmit = function(event){
+selectPassword.onblur = function(){
+    if(this.value.trim() == ''){
+        alert('Escribe una contraseña');
+}
+
+formularioRegistro.onsubmit = function(){
     if(selectName.value.trim() == '' || selectSurname.value.trim() == '' || selectUsername.value.trim() == '' || selectEemail.value.trim() == '' || selectPassword.value.trim() == '' || selectPasswordConfirm.value.trim() == ''){
         alert('Completa todos los campos');
 }
@@ -107,28 +108,27 @@ xmlhttp.onreadystatechange = function() {
 				option.setAttribute("value",value);
 		}
 		}
-		};
+		}
 
 selectPaises.onchange = function(){
-	var optionPais = this.options[this.selectedIndex];
-	var value = optionPais.getAttribute("value");
-	if (value == 1){
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://pilote.techo.org/?do=api.getRegiones?idPais=1", true);
-		xmlhttp.send();
-		xmlhttp.onreadystatechange = function() {
-    		if (this.readyState == 4 && this.status == 200) {
-			var options = JSON.parse(this.responseText);
-        	var contenido = options.contenido;
-        	for( const provincia in contenido){
-				var option = document.createElement('option');
-                var optionText = document.createTextNode(provincia);
-                option.append(optionText);
-                selectProvincias.append(option);
-        	}
-		}
-		};
-		} else {
-			selectProvincias.innerHTML = "";
+        var optionPais = this.options[this.selectedIndex];
+        var value = optionPais.getAttribute("value");
+        if (value == 1){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "http://pilote.techo.org/?do=api.getRegiones?idPais=1", true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                var options = JSON.parse(this.responseText);
+                var contenido = options.contenido;
+                for( const provincia in contenido){
+                    var option = document.createElement('option');
+                    var optionText = document.createTextNode(provincia);
+                    option.append(optionText);
+                    selectProvincias.append(option);
+                }
+            }
+            }
+            }
         }
-}
+    }
