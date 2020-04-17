@@ -31,4 +31,6 @@ Route::get('/perfil','PerfilController@datosUsuario')->name('perfil');
 
 Route::post('/perfil','PerfilController@destroy')->name('post.delete');
 
+Route::get('/questions','HomeController@preguntas')->name('questions');
+
 

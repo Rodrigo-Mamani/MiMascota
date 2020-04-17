@@ -49527,6 +49527,24 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+
+window.onload = function () {
+  var boton = document.querySelectorAll("#btnEstilo");
+  var count = 0;
+
+  boton.onclick = function () {
+    count++;
+    var bod = document.querySelectorAll(".body");
+    console.log(bod);
+
+    if (count % 2 == 0) {
+      bod.style.backgroundColor = "white";
+    } else if (count % 2 != 0) {
+      bod.style.backgroundColor = "red";
+    }
+  };
+};
+
 var formularioRegistro = document.querySelector('#theForm');
 var selectName = formularioRegistro.elements[1];
 var selectSurname = formularioRegistro.elements[2];
@@ -49631,20 +49649,6 @@ selectPassword.onblur = function () {
     }
   };
 };
-
-var btnEstilo = document.getElementById("btnEstilo");
-var count = 0;
-btnEstilo.addEventListener("click", function () {
-  btnEstilo.addEventListener("click", function () {
-    count++;
-
-    if (count % 2 == 0) {
-      document.body.style.background = "white";
-    } else if (count % 2 != 0) {
-      document.body.style.background = "black";
-    }
-  });
-}, false);
 
 /***/ }),
 

@@ -1,14 +1,37 @@
 * {
     box-sizing: border-box;
 }
+.pregunta{
+    color: #9ACD32 ;
+}
+.fondo{
+    background-image: url(../storage/imagenes/fondo3.jpg);
+}
+.fondo2{
+    background-image: url(../storage/imagenes/fondo2.jpg);
+}
+.tema{
+    color: pink;
+}
 h1{
     color: white;
     margin: auto;
 }
-.tihome, .tilogin{
+.tilogin{
     color: white;
   }
-
+  .tihome{
+      color: white;
+  }
+.tihome1{
+    color: pink;
+}
+.tihome2{
+    color: rgb(6, 203, 238);
+}
+.link{
+    color: #9ACD32;
+}
 .container-fluid{
     background-image: url(../storage/imagenes/baner.png);
     position: fixed;
@@ -67,7 +90,7 @@ h1{
 h4{
     font-size: 24px;
 }
-.cubo{
+.caja{
     background-color: rgb(121, 121, 121);
     overflow: hidden;
     border-color: rgb(0, 0, 0);

@@ -14,7 +14,7 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    <input class="@error('image') is-invalid @enderror col-10 form-control" id="image" type="file" name="image" required>
+                                    <input class="@error('image') is-invalid @enderror col-10 form-control p-1" id="image" type="file" name="image" required>
                                     @error('image')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
                     @endif
                         <div class="p-3">
                             <h2 style="text-align: center">Estas en tu perfil  {{ Auth::user()->name }}!</h2>
-                            <h4 style="text-align: center"><a href="{{ route('home') }}">Volver al inicio</a></h4>
+                            <h4 style="text-align: center"><a class="link" href="{{ route('home') }}">Volver al inicio</a></h4>
                             <ul style="padding-left:0px">
                             @foreach($users as $user)
                             @if($user->id == Auth::user()->id)

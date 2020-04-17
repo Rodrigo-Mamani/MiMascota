@@ -30,6 +30,7 @@ class PerfilController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function datosUsuario(){
         $users=User::all();
         $vac=compact('users');

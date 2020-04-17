@@ -63,4 +63,7 @@ class HomeController extends Controller
         $flight->delete();
         return redirect('perfil');
     }
+    public function preguntas(){
+        return view('questions');
+    }
 }

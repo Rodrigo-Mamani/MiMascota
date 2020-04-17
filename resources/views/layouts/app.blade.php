@@ -21,7 +21,7 @@
     <link href = "https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"  rel = "stylesheet" >
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body id="fondo">
     <div id="app">
             <div class="container-fluid">
                 <nav class="border-bottom border-success d-flex navbar navbar-expand-lg">
@@ -29,8 +29,8 @@
                 </nav>
 
             </div>
-            <div class="container">                   
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm border-top">
+            <div class="container">             
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm border-top" id="nav">
                 @auth
                                     <input class="form-control mr-sm-2" type="search" placeholder="¿Qué estás buscando?" aria-label="search">
                                     <button class="btn btn-outline boton_personalizado border my-2 my-sm-0" type="submit">
@@ -40,7 +40,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Enlaces de autenticacion -->
                             <li class="nav-item">
-                                <button id="btnEstilo">Boton</button>
+                                <a class="nav-link dropdown-item" href="{{route('questions')}}">{{ __('Preguntas frecuentes') }}</a>
                             </li>
                         @guest
                             <li class="nav-item">
@@ -61,8 +61,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#" onclick="cambiar()">{{ __('Tema') }}</a>
                                 <a class="dropdown-item" href="{{route('perfil')}}">{{ __('Mi perfil') }}</a>
-                                <a class="dropdown-item" href="#">{{ __('Preguntas frecuentes') }}</a>
+                                <a class="dropdown-item" href="{{route('questions')}}">{{ __('Preguntas frecuentes') }}</a>
                                 <a class="dropdown-item" href="#">{{ __('Configuración') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -84,5 +85,30 @@
         </main>
     </div>
     <!--<script src = "https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>-->
+    <script>
+    var count = 0;
+    function cambiar(){
+            count++;
+            var bod = document.querySelector("#fondo");
+            var titulo = document.querySelector(".tihome");
+            var caja = document.querySelector(".caja");
+            var h4 = document.querySelector(".pregunta");
+            if(count%2==0){
+                bod.classList.remove('fondo2');
+                bod.classList.add('fondo');
+                titulo.classList.remove('tihome1');
+                titulo.classList.add('tihome2');
+                caja.style.backgroundColor="rgb(6, 203, 238)";
+            }
+            else if(count%2!=0){
+                bod.classList.remove('fondo');
+                bod.classList.add('fondo2');
+                titulo.classList.remove('tihome2');
+                titulo.classList.add('tihome1');
+                caja.style.backgroundColor="pink";
+            }
+            console.log(count);
+            }
+    </script>
 </body>
 </html>
