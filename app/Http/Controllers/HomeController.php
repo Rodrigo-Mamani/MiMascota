@@ -35,35 +35,42 @@ class HomeController extends Controller
             $posts=Post::orderBy('created_at','desc')->paginate(10);
             return view('home')->with('posts',$posts);
     }
-    public function store(Array $req){
-        dd($req);
-    }
     protected function validator(array $req)
     {
+        $imagen = $req['archivo'];
+        $imagen_1=$imagen[0];
+        $imagen_2=$imagen[1];
+        $imagen_3=$imagen[2];   
         return Validator::make($req, [
-            'image' => ['required', 'image'],
+            $imagen_1 => ['required', 'image'],
+            $imagen_2 => ['required', 'image'],
+            $imagen_3 => ['required', 'image'],
             'text' => ['string', 'max:500'],
         ]);
     }
     protected function postear(request $req)
     {
+        $imagen=$req["archivo"];
+        $imagen_1=$imagen[0];
+        $imagen_2=$imagen[1];
+        $imagen_3=$imagen[2];
         $usuario=auth()->user();
-        $ruta=$req['image']->store('public');
-        $filename=basename($ruta);
-
+        $ruta_1=$imagen_1->store('public');
+        $filename_1=basename($ruta_1); //Devuelve el último componente de nombre de una ruta
+        $ruta_2=$imagen_2->store('public');
+        $filename_2=basename($ruta_2);
+        $ruta_3=$imagen_3->store('public');
+        $filename_3=basename($ruta_3);
         Post::create([
-            'image' => $filename,
+            'imagen1' => $filename_1,
+            'imagen2' => $filename_2,
+            'imagen3' => $filename_3,
             'text' => $req['text'],
             'user_id' => $usuario->id,
         ]);
         return redirect('home');
     }
-    public function delete($id){
-        $flight= Post::find($id);
-        $flight->delete();
-        return redirect('perfil');
-    }
-    public function preguntas(){
+    protected function preguntas(){
         return view('questions');
     }
 }

@@ -37,7 +37,7 @@
                         </div>
                     @endif
                         <div class="p-3">
-                            <h2 style="text-align: center">Estas en tu perfil  {{ Auth::user()->name }}!</h2>
+                            <h2 style="text-align: center">Estas en tu perfil  {{ Auth::user()->username }}!</h2>
                             <h4 style="text-align: center"><a class="link" href="{{ route('home') }}">Volver al inicio</a></h4>
                             <ul style="padding-left:0px">
                             @foreach($users as $user)

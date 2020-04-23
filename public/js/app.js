@@ -49527,49 +49527,13 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
-
-window.onload = function () {
-  var boton = document.querySelectorAll("#btnEstilo");
-  var count = 0;
-
-  boton.onclick = function () {
-    count++;
-    var bod = document.querySelectorAll(".body");
-    console.log(bod);
-
-    if (count % 2 == 0) {
-      bod.style.backgroundColor = "white";
-    } else if (count % 2 != 0) {
-      bod.style.backgroundColor = "red";
-    }
-  };
-};
-
 var formularioRegistro = document.querySelector('#theForm');
-var selectName = formularioRegistro.elements[1];
-var selectSurname = formularioRegistro.elements[2];
-var selectUsername = formularioRegistro.elements[3];
-var selectEmail = formularioRegistro.elements[4];
-var selectPaises = formularioRegistro.elements[5];
-var selectProvincias = formularioRegistro.elements[6];
-var selectPassword = formularioRegistro.elements[8];
-var selectPasswordConfirm = formularioRegistro.elements[9];
-
-selectName.onblur = function () {
-  if (this.value.trim() == '') {
-    alert('El nombre es obligatorio');
-  } else if (this.value.length < 3 && this.value > 12) {
-    alert('El nombre debe tener entre 3 y 12 caracteres');
-  }
-};
-
-selectSurname.onblur = function () {
-  if (this.value.trim() == '') {
-    alert('El apellido es obligatorio');
-  } else if (this.value.length < 3 && this.value > 12) {
-    alert('El apellido debe tener entre 3 y 12 caracteres');
-  }
-};
+var selectUsername = formularioRegistro.elements[1];
+var selectEmail = formularioRegistro.elements[2];
+var selectPaises = formularioRegistro.elements[3];
+var selectProvincias = formularioRegistro.elements[4];
+var selectPassword = formularioRegistro.elements[6];
+var selectPasswordConfirm = formularioRegistro.elements[7];
 
 selectUsername.onblur = function () {
   if (this.value.trim() == '') {

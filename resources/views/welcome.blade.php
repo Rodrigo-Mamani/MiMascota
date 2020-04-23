@@ -71,13 +71,12 @@
                 </div>
 
                 
-                @if (Route::has('login'))
+                @if (Route::has('login')) <!--si la ruta login esta creada:-->
                     <div class="links">
-                            @auth
+                            @auth <!--si esta logueado mostra enlace a inicio-->
                                 <a href="{{ url('/home') }}">Volver al inicio</a>
-                            @else
+                            @else <!--si no esta logueado mostra enlace a ingresar y a registro si este tiene la ruta creada-->
                                 <a href="{{ route('login') }}">Ingresar</a>
-
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}">Registrate</a>
                             @endif

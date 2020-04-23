@@ -31,7 +31,7 @@
             </div>
             <div class="container">             
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm border-top" id="nav">
-                @auth
+                @auth <!--si está logueado mostrar buscador-->
                                     <input class="form-control mr-sm-2" type="search" placeholder="¿Qué estás buscando?" aria-label="search">
                                     <button class="btn btn-outline boton_personalizado border my-2 my-sm-0" type="submit">
                                             <i class="icon ion-md-search"></i>
@@ -39,25 +39,23 @@
                                     @endauth
                     <ul class="navbar-nav ml-auto">
                         <!-- Enlaces de autenticacion -->
-                            <li class="nav-item">
-                                <a class="nav-link dropdown-item" href="{{route('questions')}}">{{ __('Preguntas frecuentes') }}</a>
-                            </li>
-                        @guest
+                        @guest <!--si es un invitado/no está logueado, enlace a login y a register si la ruta está creada-->
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
                             </li>
-                            @if (Route::has('register'))
+                            @if (Route::has('register')) 
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Registrate') }}</a>
                                 </li>
                             @endif
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{url('/')}}">Salir</a>
+                                    <a class="nav-link" href="{{url('/')}}">Salir</a> <!-- se muestra siempre-->
                                 </li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <img class="rounded-circle" src="/storage/{{ Auth::user()->img }}" alt="" width="30px">
+                                    {{ Auth::user()->username }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

@@ -50,11 +50,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:12', 'min:3'],
-            'surname' => ['required', 'string', 'max:12', 'min:3'],
             'username' => ['required', 'string', 'max:12', 'min:3', 'unique:users'],
-            'avatar' => ['image'],
             'email' => ['required', 'string', 'email', 'unique:users'],
+            'pais' => ['required'],
+            'provincia' => ['required'],
+            'avatar' => ['image'],
             'password' => ['required', 'min:8', 'confirmed']
         ]);
     }
@@ -71,11 +71,11 @@ class RegisterController extends Controller
         $filename=basename($ruta);
 
         return User::create([
-            'name' => $data['name'],
-            'surname' => $data['surname'],
             'username' => $data['username'],
-            'img' => $filename,
             'email' => $data['email'],
+            'pais' => $data['pais'],
+            'provincia' => $data['provincia'],
+            'img' => $filename,
             'password' => bcrypt($data['password']),
         ]);
     }
